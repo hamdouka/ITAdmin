@@ -1,0 +1,25 @@
+Detection Proactive Remediation Script:
+Detection script to findChrome versions older than 123
+Author: Hamdou Wane
+Date: 3/24/2024
+
+
+if(test-path -Path 'C:\Program Files\Google\Chrome\Application\chrome.exe')
+{
+    check Firefox installed version
+    if((Get-Item -Path 'C:\Program Files\Mozilla Firefox\firefox.exe').VersionInfo.FileVersion -lt 123)
+    {
+        Write-Output "OLD: Chrome is older than version 123"
+        exit 1
+    }
+    else
+    {
+        Write-Output "Good: Chrome is of valid version"
+        exit 0
+    }s
+}
+else
+{
+    Write-Output "Good: No Chrome installed"
+    exit 0
+}
